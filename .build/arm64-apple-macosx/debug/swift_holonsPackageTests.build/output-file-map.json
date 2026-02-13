@@ -1,0 +1,12 @@
+{
+  "": {
+    "swift-dependencies": "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/swift_holonsPackageTests.build/master.swiftdeps"
+  },
+  "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/swift-holonsPackageTests.derived/runner.swift": {
+    "dependencies": "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/swift_holonsPackageTests.build/runner.d",
+    "object": "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/swift_holonsPackageTests.build/runner.swift.o",
+    "swiftmodule": "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/swift_holonsPackageTests.build/runner~partial.swiftmodule",
+    "swift-dependencies": "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/swift_holonsPackageTests.build/runner.swiftdeps",
+    "diagnostics": "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/swift_holonsPackageTests.build/runner.dia"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "": {
+    "swift-dependencies": "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/Holons.build/master.swiftdeps"
+  },
+  "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/Sources/Holons/Holons.swift": {
+    "dependencies": "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/Holons.build/Holons.d",
+    "object": "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/Holons.build/Holons.swift.o",
+    "swiftmodule": "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/Holons.build/Holons~partial.swiftmodule",
+    "swift-dependencies": "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/Holons.build/Holons.swiftdeps",
+    "diagnostics": "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/Holons.build/Holons.dia"
+  },
+  "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/Sources/Holons/Identity.swift": {
+    "dependencies": "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/Holons.build/Identity.d",
+    "object": "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/Holons.build/Identity.swift.o",
+    "swiftmodule": "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/Holons.build/Identity~partial.swiftmodule",
+    "swift-dependencies": "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/Holons.build/Identity.swiftdeps",
+    "diagnostics": "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/Holons.build/Identity.dia"
+  },
+  "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/Sources/Holons/Serve.swift": {
+    "dependencies": "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/Holons.build/Serve.d",
+    "object": "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/Holons.build/Serve.swift.o",
+    "swiftmodule": "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/Holons.build/Serve~partial.swiftmodule",
+    "swift-dependencies": "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/Holons.build/Serve.swiftdeps",
+    "diagnostics": "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/Holons.build/Serve.dia"
+  },
+  "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/Sources/Holons/Transport.swift": {
+    "dependencies": "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/Holons.build/Transport.d",
+    "object": "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/Holons.build/Transport.swift.o",
+    "swiftmodule": "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/Holons.build/Transport~partial.swiftmodule",
+    "swift-dependencies": "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/Holons.build/Transport.swiftdeps",
+    "diagnostics": "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/Holons.build/Transport.dia"
+  }
+}

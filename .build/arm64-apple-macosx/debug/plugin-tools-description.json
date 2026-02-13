@@ -1,0 +1,701 @@
+{
+  "builtTestProducts" : [
+    {
+      "binaryPath" : "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/swift-holonsPackageTests.xctest/Contents/MacOS/swift-holonsPackageTests",
+      "packagePath" : "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons",
+      "productName" : "swift-holonsPackageTests"
+    }
+  ],
+  "copyCommands" : {
+
+  },
+  "explicitTargetDependencyImportCheckingMode" : {
+    "none" : {
+
+    }
+  },
+  "generatedSourceTargetSet" : [
+
+  ],
+  "pluginDescriptions" : [
+
+  ],
+  "swiftCommands" : {
+    "C.Holons-arm64-apple-macosx15.0-debug.module" : {
+      "executable" : "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "fileList" : "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/Holons.build/sources",
+      "importPath" : "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/Sources/Holons/Holons.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/Sources/Holons/Identity.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/Sources/Holons/Serve.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/Sources/Holons/Transport.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/Holons.build/sources"
+        }
+      ],
+      "isLibrary" : true,
+      "moduleName" : "Holons",
+      "moduleOutputPath" : "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/Modules/Holons.swiftmodule",
+      "objects" : [
+        "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/Holons.build/Holons.swift.o",
+        "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/Holons.build/Identity.swift.o",
+        "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/Holons.build/Serve.swift.o",
+        "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/Holons.build/Transport.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "arm64-apple-macosx13.0",
+        "-incremental",
+        "-enable-batch-mode",
+        "-serialize-diagnostics",
+        "-index-store-path",
+        "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-j10",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+        "-module-cache-path",
+        "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/ModuleCache",
+        "-parseable-output",
+        "-parse-as-library",
+        "-emit-objc-header",
+        "-emit-objc-header-path",
+        "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/Holons.build/include/Holons-Swift.h",
+        "-color-diagnostics",
+        "-swift-version",
+        "5",
+        "-plugin-path",
+        "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing",
+        "-sdk",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+        "-I",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-L",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-g",
+        "-Xcc",
+        "-isysroot",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "swift_holons"
+      ],
+      "outputFileMapPath" : "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/Holons.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/Holons.build/Holons.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/Holons.build/Identity.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/Holons.build/Serve.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/Holons.build/Transport.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/Modules/Holons.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/Sources/Holons/Holons.swift",
+        "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/Sources/Holons/Identity.swift",
+        "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/Sources/Holons/Serve.swift",
+        "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/Sources/Holons/Transport.swift"
+      ],
+      "tempsPath" : "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/Holons.build",
+      "wholeModuleOptimization" : false
+    },
+    "C.HolonsTests-arm64-apple-macosx15.0-debug.module" : {
+      "executable" : "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "fileList" : "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/HolonsTests.build/sources",
+      "importPath" : "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/Tests/HolonsTests/HolonsTests.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/Modules/Holons.swiftmodule"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/HolonsTests.build/sources"
+        }
+      ],
+      "isLibrary" : true,
+      "moduleName" : "HolonsTests",
+      "moduleOutputPath" : "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/Modules/HolonsTests.swiftmodule",
+      "objects" : [
+        "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/HolonsTests.build/HolonsTests.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "arm64-apple-macosx14.0",
+        "-incremental",
+        "-enable-batch-mode",
+        "-serialize-diagnostics",
+        "-index-store-path",
+        "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-Xfrontend",
+        "-enable-cross-import-overlays",
+        "-j10",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+        "-module-cache-path",
+        "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/ModuleCache",
+        "-parseable-output",
+        "-parse-as-library",
+        "-color-diagnostics",
+        "-swift-version",
+        "5",
+        "-plugin-path",
+        "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing",
+        "-sdk",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+        "-I",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-L",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-g",
+        "-Xcc",
+        "-isysroot",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "swift_holons"
+      ],
+      "outputFileMapPath" : "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/HolonsTests.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/HolonsTests.build/HolonsTests.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/Modules/HolonsTests.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/Tests/HolonsTests/HolonsTests.swift"
+      ],
+      "tempsPath" : "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/HolonsTests.build",
+      "wholeModuleOptimization" : false
+    },
+    "C.swift-holonsPackageTests-arm64-apple-macosx15.0-debug.module" : {
+      "executable" : "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "fileList" : "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/swift_holonsPackageTests.build/sources",
+      "importPath" : "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/swift-holonsPackageTests.derived/runner.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/Modules/HolonsTests.swiftmodule"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/swift_holonsPackageTests.build/sources"
+        }
+      ],
+      "isLibrary" : true,
+      "moduleName" : "swift_holonsPackageTests",
+      "moduleOutputPath" : "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/Modules/swift_holonsPackageTests.swiftmodule",
+      "objects" : [
+        "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/swift_holonsPackageTests.build/runner.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "arm64-apple-macosx13.0",
+        "-incremental",
+        "-enable-batch-mode",
+        "-serialize-diagnostics",
+        "-index-store-path",
+        "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-Xfrontend",
+        "-enable-cross-import-overlays",
+        "-j10",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+        "-module-cache-path",
+        "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/ModuleCache",
+        "-parseable-output",
+        "-parse-as-library",
+        "-emit-objc-header",
+        "-emit-objc-header-path",
+        "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/swift_holonsPackageTests.build/include/swift-holonsPackageTests-Swift.h",
+        "-color-diagnostics",
+        "-plugin-path",
+        "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing",
+        "-sdk",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+        "-I",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-L",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-g",
+        "-Xcc",
+        "-isysroot",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "swift_holons"
+      ],
+      "outputFileMapPath" : "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/swift_holonsPackageTests.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/swift_holonsPackageTests.build/runner.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/Modules/swift_holonsPackageTests.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/swift-holonsPackageTests.derived/runner.swift"
+      ],
+      "tempsPath" : "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/swift_holonsPackageTests.build",
+      "wholeModuleOptimization" : false
+    }
+  },
+  "swiftFrontendCommands" : {
+
+  },
+  "swiftTargetScanArgs" : {
+    "Holons" : [
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "-module-name",
+      "Holons",
+      "-package-name",
+      "swift_holons",
+      "-c",
+      "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/Sources/Holons/Holons.swift",
+      "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/Sources/Holons/Identity.swift",
+      "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/Sources/Holons/Serve.swift",
+      "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/Sources/Holons/Transport.swift",
+      "-I",
+      "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/Modules",
+      "-target",
+      "arm64-apple-macosx13.0",
+      "-incremental",
+      "-enable-batch-mode",
+      "-serialize-diagnostics",
+      "-index-store-path",
+      "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/index/store",
+      "-Onone",
+      "-enable-testing",
+      "-j10",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+      "-module-cache-path",
+      "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/ModuleCache",
+      "-parseable-output",
+      "-parse-as-library",
+      "-emit-objc-header",
+      "-emit-objc-header-path",
+      "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/Holons.build/include/Holons-Swift.h",
+      "-color-diagnostics",
+      "-swift-version",
+      "5",
+      "-plugin-path",
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing",
+      "-sdk",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+      "-F",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-F",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+      "-I",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-L",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-g",
+      "-Xcc",
+      "-isysroot",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "swift_holons",
+      "-driver-use-frontend-path",
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"
+    ],
+    "HolonsTests" : [
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "-module-name",
+      "HolonsTests",
+      "-package-name",
+      "swift_holons",
+      "-c",
+      "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/Tests/HolonsTests/HolonsTests.swift",
+      "-I",
+      "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/Modules",
+      "-target",
+      "arm64-apple-macosx14.0",
+      "-incremental",
+      "-enable-batch-mode",
+      "-serialize-diagnostics",
+      "-index-store-path",
+      "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/index/store",
+      "-Onone",
+      "-enable-testing",
+      "-Xfrontend",
+      "-enable-cross-import-overlays",
+      "-j10",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+      "-module-cache-path",
+      "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/ModuleCache",
+      "-parseable-output",
+      "-parse-as-library",
+      "-color-diagnostics",
+      "-swift-version",
+      "5",
+      "-plugin-path",
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing",
+      "-sdk",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+      "-F",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-F",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+      "-I",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-L",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-g",
+      "-Xcc",
+      "-isysroot",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "swift_holons",
+      "-driver-use-frontend-path",
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"
+    ],
+    "swift_holonsPackageTests" : [
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "-module-name",
+      "swift_holonsPackageTests",
+      "-package-name",
+      "swift_holons",
+      "-c",
+      "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/swift-holonsPackageTests.derived/runner.swift",
+      "-I",
+      "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/Modules",
+      "-target",
+      "arm64-apple-macosx13.0",
+      "-incremental",
+      "-enable-batch-mode",
+      "-serialize-diagnostics",
+      "-index-store-path",
+      "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/index/store",
+      "-Onone",
+      "-enable-testing",
+      "-Xfrontend",
+      "-enable-cross-import-overlays",
+      "-j10",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+      "-module-cache-path",
+      "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/ModuleCache",
+      "-parseable-output",
+      "-parse-as-library",
+      "-emit-objc-header",
+      "-emit-objc-header-path",
+      "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/swift_holonsPackageTests.build/include/swift-holonsPackageTests-Swift.h",
+      "-color-diagnostics",
+      "-plugin-path",
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing",
+      "-sdk",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+      "-F",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-F",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+      "-I",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-L",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-g",
+      "-Xcc",
+      "-isysroot",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "swift_holons",
+      "-driver-use-frontend-path",
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"
+    ]
+  },
+  "targetDependencyMap" : {
+    "Holons" : [
+
+    ],
+    "HolonsTests" : [
+      "Holons"
+    ],
+    "swift_holonsPackageTests" : [
+      "HolonsTests",
+      "Holons"
+    ]
+  },
+  "testDiscoveryCommands" : {
+
+  },
+  "testEntryPointCommands" : {
+    "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/swift-holonsPackageTests.derived/runner.swift" : {
+      "inputs" : [
+
+      ],
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/swift-holonsPackageTests.derived/runner.swift"
+        }
+      ]
+    }
+  },
+  "traitConfiguration" : {
+    "default" : {
+
+    }
+  },
+  "writeCommands" : {
+    "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/Holons.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/Sources/Holons/Holons.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/Sources/Holons/Identity.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/Sources/Holons/Serve.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/Sources/Holons/Transport.swift"
+        }
+      ],
+      "outputFilePath" : "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/Holons.build/sources"
+    },
+    "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/HolonsTests.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/Tests/HolonsTests/HolonsTests.swift"
+        }
+      ],
+      "outputFilePath" : "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/HolonsTests.build/sources"
+    },
+    "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/swift-holonsPackageTests.product/Objects.LinkFileList" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<link-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/Holons.build/Holons.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/Holons.build/Identity.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/Holons.build/Serve.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/Holons.build/Transport.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/HolonsTests.build/HolonsTests.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/swift_holonsPackageTests.build/runner.swift.o"
+        }
+      ],
+      "outputFilePath" : "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/swift-holonsPackageTests.product/Objects.LinkFileList"
+    },
+    "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt" : {
+      "alwaysOutOfDate" : true,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<swift-get-version>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"
+        }
+      ],
+      "outputFilePath" : "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt"
+    },
+    "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/swift_holonsPackageTests.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/swift-holonsPackageTests.derived/runner.swift"
+        }
+      ],
+      "outputFilePath" : "/Users/bpds/Documents/Entrepot/Git/Compilons/videosteno/organic-programming/sdk/swift-holons/.build/arm64-apple-macosx/debug/swift_holonsPackageTests.build/sources"
+    }
+  }
+}
