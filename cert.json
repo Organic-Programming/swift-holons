@@ -22,7 +22,9 @@
     "valence": "multi",
     "routing": [
       "unicast",
-      "fanout"
+      "fanout",
+      "broadcast-response",
+      "full-broadcast"
     ]
   },
   "last_certified": {
