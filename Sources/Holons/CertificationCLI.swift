@@ -52,10 +52,16 @@ public enum CertificationCLI {
     }
 
     public static func echoClientHelperPath(packageRoot: URL = packageRoot()) -> URL {
-        sdkRoot(packageRoot: packageRoot)
-            .appendingPathComponent("js-web-holons", isDirectory: true)
+        packageRoot
             .appendingPathComponent("cmd", isDirectory: true)
             .appendingPathComponent("echo-client-go", isDirectory: true)
+            .appendingPathComponent("main.go")
+    }
+
+    public static func holonRPCServerHelperPath(packageRoot: URL = packageRoot()) -> URL {
+        packageRoot
+            .appendingPathComponent("cmd", isDirectory: true)
+            .appendingPathComponent("holon-rpc-server-go", isDirectory: true)
             .appendingPathComponent("main.go")
     }
 
@@ -113,6 +119,38 @@ public enum CertificationCLI {
         if !containsFlag(userArgs, named: "--version") {
             arguments.append(contentsOf: ["--version", version])
         }
+
+        var env = environment
+        if env["GOCACHE"]?.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ?? true {
+            env["GOCACHE"] = defaultGoCache
+        }
+
+        return CertificationInvocation(
+            command: resolveGoBinary(environment: environment),
+            arguments: arguments,
+            currentDirectoryPath: goHolonsDirectory(packageRoot: packageRoot).path,
+            environment: env
+        )
+    }
+
+    public static func makeHolonRPCServerInvocation(
+        userArgs: [String],
+        version: String = Holons.version,
+        environment: [String: String] = ProcessInfo.processInfo.environment,
+        packageRoot: URL = packageRoot()
+    ) -> CertificationInvocation {
+        var arguments: [String] = [
+            "run",
+            holonRPCServerHelperPath(packageRoot: packageRoot).path,
+        ]
+
+        if !containsFlag(userArgs, named: "--sdk") {
+            arguments.append(contentsOf: ["--sdk", sdkName])
+        }
+        if !containsFlag(userArgs, named: "--version") {
+            arguments.append(contentsOf: ["--version", version])
+        }
+        arguments.append(contentsOf: userArgs)
 
         var env = environment
         if env["GOCACHE"]?.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ?? true {

@@ -18,6 +18,10 @@ let package = Package(
         .executable(
             name: "echo-server",
             targets: ["EchoServer"]
+        ),
+        .executable(
+            name: "holon-rpc-server",
+            targets: ["HolonRPCServer"]
         )
     ],
     targets: [
@@ -33,6 +37,11 @@ let package = Package(
             name: "EchoServer",
             dependencies: ["Holons"],
             path: "Sources/echo-server"
+        ),
+        .executableTarget(
+            name: "HolonRPCServer",
+            dependencies: ["Holons"],
+            path: "Sources/holon-rpc-server"
         ),
         .testTarget(
             name: "HolonsTests",
