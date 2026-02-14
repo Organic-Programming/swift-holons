@@ -146,6 +146,8 @@ final class CertificationCLITests: XCTestCase {
         XCTAssertEqual(executables?["holon_rpc_server"] as? String, "swift run holon-rpc-server")
         XCTAssertEqual(capabilities?["grpc_dial_ws"] as? Bool, true)
         XCTAssertEqual(capabilities?["holon_rpc_server"] as? Bool, true)
+        let routing = Set((capabilities?["routing"] as? [String]) ?? [])
+        XCTAssertEqual(routing, Set(["unicast", "fanout"]))
     }
 
     func testEchoClientSupportsMemRoundTrip() throws {
@@ -200,6 +202,115 @@ final class CertificationCLITests: XCTestCase {
         XCTAssertEqual(out["message"] as? String, "hello-cert")
         XCTAssertEqual(out["sdk"] as? String, "swift-holons")
         await client.close()
+    }
+
+    func testHolonRPCServerFanoutRoutingAggregatesResponses() async throws {
+        let invocation = CertificationCLI.makeHolonRPCServerInvocation(
+            userArgs: ["ws://127.0.0.1:0/rpc"],
+            packageRoot: packageRoot
+        )
+        let server = try startInvocationServer(invocation)
+        defer { stopRunningProcess(server) }
+
+        var responders: [HolonRPCClient] = []
+        let caller = HolonRPCClient(
+            heartbeatInterval: 10,
+            heartbeatTimeout: 2,
+            reconnectMinDelay: 0.2,
+            reconnectMaxDelay: 0.5
+        )
+
+        do {
+            for index in 0..<3 {
+                let responder = HolonRPCClient(
+                    heartbeatInterval: 10,
+                    heartbeatTimeout: 2,
+                    reconnectMinDelay: 0.2,
+                    reconnectMaxDelay: 0.5
+                )
+                let responderID = "responder-\(index)"
+                await responder.register(method: "echo.v1.Echo/Ping") { params in
+                    var out = params
+                    out["responder"] = responderID
+                    return out
+                }
+                try await responder.connect(server.address.absoluteString)
+                responders.append(responder)
+            }
+
+            try await caller.connect(server.address.absoluteString)
+
+            var aggregated: [String: Any]?
+            var lastError: Error?
+            let deadline = Date().addingTimeInterval(4.0)
+            while Date() < deadline {
+                do {
+                    let out = try await caller.invoke(
+                        method: "*.Echo/Ping",
+                        params: ["message": "fanout-check"]
+                    )
+                    if let entries = out["value"] as? [Any], entries.count == 3 {
+                        aggregated = out
+                        break
+                    }
+                } catch {
+                    lastError = error
+                }
+                try await Task.sleep(nanoseconds: 120_000_000)
+            }
+
+            if let lastError, aggregated == nil {
+                XCTFail("fanout invocation failed: \(lastError)")
+            }
+
+            guard let aggregated else {
+                XCTFail("fanout invocation did not return 3 entries before timeout")
+                return
+            }
+
+            guard let entries = aggregated["value"] as? [Any] else {
+                XCTFail("fanout response missing value array: \(aggregated)")
+                return
+            }
+            XCTAssertEqual(entries.count, 3)
+
+            var peers = Set<String>()
+            var respondersSeen = Set<String>()
+
+            for raw in entries {
+                guard let entry = raw as? [String: Any] else {
+                    XCTFail("fanout entry must be an object: \(raw)")
+                    return
+                }
+                guard let peer = entry["peer"] as? String else {
+                    XCTFail("fanout entry missing peer: \(entry)")
+                    return
+                }
+                guard let result = entry["result"] as? [String: Any] else {
+                    XCTFail("fanout entry missing result payload: \(entry)")
+                    return
+                }
+                XCTAssertEqual(result["message"] as? String, "fanout-check")
+                if let responderID = result["responder"] as? String {
+                    respondersSeen.insert(responderID)
+                }
+                peers.insert(peer)
+            }
+
+            XCTAssertEqual(peers.count, 3)
+            XCTAssertEqual(respondersSeen, Set(["responder-0", "responder-1", "responder-2"]))
+        } catch {
+            for responder in responders {
+                await responder.close()
+            }
+            await caller.close()
+            throw error
+        }
+
+        for responder in responders {
+            await responder.close()
+        }
+        await caller.close()
     }
 }
 
