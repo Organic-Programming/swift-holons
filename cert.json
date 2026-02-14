@@ -28,9 +28,9 @@
     ]
   },
   "last_certified": {
-    "commit": "9aeace990b5980244957eef3dbd15a7c3bdfcb4c",
-    "date": "2026-02-14",
-    "level": 5
+    "commit": "",
+    "date": "",
+    "level": 0
   },
   "role": "hub"
 }
