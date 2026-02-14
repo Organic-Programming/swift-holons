@@ -10,11 +10,29 @@ let package = Package(
         .library(
             name: "Holons",
             targets: ["Holons"]
+        ),
+        .executable(
+            name: "echo-client",
+            targets: ["EchoClient"]
+        ),
+        .executable(
+            name: "echo-server",
+            targets: ["EchoServer"]
         )
     ],
     targets: [
         .target(
             name: "Holons"
+        ),
+        .executableTarget(
+            name: "EchoClient",
+            dependencies: ["Holons"],
+            path: "Sources/echo-client"
+        ),
+        .executableTarget(
+            name: "EchoServer",
+            dependencies: ["Holons"],
+            path: "Sources/echo-server"
         ),
         .testTarget(
             name: "HolonsTests",

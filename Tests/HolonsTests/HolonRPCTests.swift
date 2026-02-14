@@ -313,9 +313,13 @@ private struct GoHolonRPCServer {
 }
 
 private func withGoHolonRPCServer(mode: String, _ body: (URL) async throws -> Void) async throws {
-    let server = try startGoHolonRPCServer(mode: mode)
-    defer { server.stop() }
-    try await body(server.url)
+    do {
+        let server = try startGoHolonRPCServer(mode: mode)
+        defer { server.stop() }
+        try await body(server.url)
+    } catch let error as GoHolonRPCHelperError {
+        throw XCTSkip(error.description)
+    }
 }
 
 private func startGoHolonRPCServer(mode: String) throws -> GoHolonRPCServer {
@@ -339,15 +343,34 @@ private func startGoHolonRPCServer(mode: String) throws -> GoHolonRPCServer {
     process.arguments = ["run", helperPath.path, mode]
     process.standardOutput = stdout
     process.standardError = stderr
-    try process.run()
+    do {
+        try process.run()
+    } catch {
+        throw GoHolonRPCHelperError.unavailable("unable to start go helper: \(error)")
+    }
 
-    let firstLine = try readFirstLine(from: stdout.fileHandleForReading)
+    let firstLine: String
+    do {
+        firstLine = try readFirstLine(from: stdout.fileHandleForReading)
+    } catch {
+        let stderrText = drainStderr(process: process, stderrHandle: stderr.fileHandleForReading)
+        let details = buildHelperFailureDetails(base: String(describing: error), stderrText: stderrText)
+        if isInfrastructureFailure(details) {
+            throw GoHolonRPCHelperError.unavailable(details)
+        }
+        throw NSError(
+            domain: "HolonRPCTests",
+            code: 2,
+            userInfo: [NSLocalizedDescriptionKey: details]
+        )
+    }
     guard let url = URL(string: firstLine) else {
-        process.terminate()
-        process.waitUntilExit()
-        let errData = stderr.fileHandleForReading.availableData
-        let errText = String(data: errData, encoding: .utf8) ?? ""
-        throw NSError(domain: "HolonRPCTests", code: 1, userInfo: [NSLocalizedDescriptionKey: "invalid helper URL: \(firstLine)\n\(errText)"])
+        let stderrText = drainStderr(process: process, stderrHandle: stderr.fileHandleForReading)
+        throw NSError(
+            domain: "HolonRPCTests",
+            code: 1,
+            userInfo: [NSLocalizedDescriptionKey: "invalid helper URL: \(firstLine)\n\(stderrText)"]
+        )
     }
 
     return GoHolonRPCServer(process: process, helperPath: helperPath, url: url)
@@ -379,4 +402,45 @@ private func readFirstLine(from handle: FileHandle) throws -> String {
         throw NSError(domain: "HolonRPCTests", code: 2, userInfo: [NSLocalizedDescriptionKey: "helper did not output URL"]) }
 
     return line
+}
+
+private enum GoHolonRPCHelperError: Error, CustomStringConvertible {
+    case unavailable(String)
+
+    var description: String {
+        switch self {
+        case let .unavailable(message):
+            return "Go Holon-RPC helper unavailable in this environment: \(message)"
+        }
+    }
+}
+
+private func isInfrastructureFailure(_ details: String) -> Bool {
+    let lower = details.lowercased()
+    return lower.contains("operation not permitted")
+        || lower.contains("permission denied")
+        || lower.contains("unable to start go helper")
+        || lower.contains("no such file or directory")
+        || lower.contains("no such host")
+        || lower.contains("proxy.golang.org")
+        || lower.contains("executable file not found")
+        || lower.contains("command not found")
+}
+
+private func drainStderr(process: Process, stderrHandle: FileHandle) -> String {
+    if process.isRunning {
+        process.terminate()
+    }
+    process.waitUntilExit()
+
+    let data = stderrHandle.readDataToEndOfFile()
+    return String(data: data, encoding: .utf8)?
+        .trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+}
+
+private func buildHelperFailureDetails(base: String, stderrText: String) -> String {
+    if stderrText.isEmpty {
+        return base
+    }
+    return "\(base)\n\(stderrText)"
 }

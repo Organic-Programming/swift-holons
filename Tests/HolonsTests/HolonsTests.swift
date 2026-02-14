@@ -69,28 +69,35 @@ final class HolonsTests: XCTestCase {
     }
 
     func testRuntimeTCPRoundTrip() throws {
-        let runtime = try Transport.listenRuntime("tcp://127.0.0.1:0")
-        guard case let .tcp(listener) = runtime else {
-            XCTFail("expected tcp runtime listener")
-            return
+        do {
+            let runtime = try Transport.listenRuntime("tcp://127.0.0.1:0")
+            guard case let .tcp(listener) = runtime else {
+                XCTFail("expected tcp runtime listener")
+                return
+            }
+            defer { try? listener.close() }
+
+            let clientFD = try connectTCP(host: "127.0.0.1", port: listener.boundPort)
+            let client = POSIXRuntimeConnection(
+                readFD: clientFD,
+                writeFD: clientFD,
+                ownsReadFD: true,
+                ownsWriteFD: true
+            )
+            defer { try? client.close() }
+
+            let server = try listener.accept()
+            defer { try? server.close() }
+
+            try client.write(Data("ping".utf8))
+            let received = try server.read(maxBytes: 4)
+            XCTAssertEqual(String(data: received, encoding: .utf8), "ping")
+        } catch {
+            if isPermissionDeniedError(error) {
+                throw XCTSkip("tcp runtime sockets unavailable in this environment: \(error)")
+            }
+            throw error
         }
-        defer { try? listener.close() }
-
-        let clientFD = try connectTCP(host: "127.0.0.1", port: listener.boundPort)
-        let client = POSIXRuntimeConnection(
-            readFD: clientFD,
-            writeFD: clientFD,
-            ownsReadFD: true,
-            ownsWriteFD: true
-        )
-        defer { try? client.close() }
-
-        let server = try listener.accept()
-        defer { try? server.close() }
-
-        try client.write(Data("ping".utf8))
-        let received = try server.read(maxBytes: 4)
-        XCTAssertEqual(String(data: received, encoding: .utf8), "ping")
     }
 
     func testRuntimeUnixRoundTrip() throws {
@@ -98,28 +105,35 @@ final class HolonsTests: XCTestCase {
             .appendingPathComponent("holons_test_\(UUID().uuidString).sock")
             .path
 
-        let runtime = try Transport.listenRuntime("unix://\(socketPath)")
-        guard case let .unix(listener) = runtime else {
-            XCTFail("expected unix runtime listener")
-            return
+        do {
+            let runtime = try Transport.listenRuntime("unix://\(socketPath)")
+            guard case let .unix(listener) = runtime else {
+                XCTFail("expected unix runtime listener")
+                return
+            }
+            defer { try? listener.close() }
+
+            let clientFD = try connectUnix(path: socketPath)
+            let client = POSIXRuntimeConnection(
+                readFD: clientFD,
+                writeFD: clientFD,
+                ownsReadFD: true,
+                ownsWriteFD: true
+            )
+            defer { try? client.close() }
+
+            let server = try listener.accept()
+            defer { try? server.close() }
+
+            try client.write(Data("unix".utf8))
+            let received = try server.read(maxBytes: 4)
+            XCTAssertEqual(String(data: received, encoding: .utf8), "unix")
+        } catch {
+            if isPermissionDeniedError(error) {
+                throw XCTSkip("unix runtime sockets unavailable in this environment: \(error)")
+            }
+            throw error
         }
-        defer { try? listener.close() }
-
-        let clientFD = try connectUnix(path: socketPath)
-        let client = POSIXRuntimeConnection(
-            readFD: clientFD,
-            writeFD: clientFD,
-            ownsReadFD: true,
-            ownsWriteFD: true
-        )
-        defer { try? client.close() }
-
-        let server = try listener.accept()
-        defer { try? server.close() }
-
-        try client.write(Data("unix".utf8))
-        let received = try server.read(maxBytes: 4)
-        XCTAssertEqual(String(data: received, encoding: .utf8), "unix")
     }
 
     func testRuntimeStdioSingleAccept() throws {
@@ -167,6 +181,12 @@ final class HolonsTests: XCTestCase {
 
 private enum TestConnectionError: Error {
     case connectFailed(String)
+}
+
+private func isPermissionDeniedError(_ error: Error) -> Bool {
+    let message = String(describing: error).lowercased()
+    return message.contains("operation not permitted")
+        || message.contains("permission denied")
 }
 
 private func connectTCP(host: String, port: Int) throws -> Int32 {
