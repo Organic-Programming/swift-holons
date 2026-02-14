@@ -86,6 +86,29 @@ final class CertificationCLITests: XCTestCase {
         XCTAssertTrue(invocation.arguments.contains("--version=9.9.9"))
     }
 
+    func testEchoServerInvocationUsesDelayHelperWhenRequested() {
+        let invocation = CertificationCLI.makeEchoServerInvocation(
+            userArgs: [
+                "--listen", "tcp://127.0.0.1:9999",
+                "--handler-delay-ms", "5000",
+            ],
+            environment: ["GO_BIN": "go-custom"],
+            packageRoot: packageRoot
+        )
+
+        let helperPath = packageRoot
+            .appendingPathComponent("cmd")
+            .appendingPathComponent("echo-server-delay")
+            .appendingPathComponent("main.go")
+
+        XCTAssertEqual(invocation.arguments[0], "run")
+        XCTAssertEqual(invocation.arguments[1], helperPath.path)
+        XCTAssertTrue(invocation.arguments.contains("--handler-delay-ms"))
+        XCTAssertTrue(invocation.arguments.contains("5000"))
+        XCTAssertTrue(invocation.arguments.contains("--sdk"))
+        XCTAssertTrue(invocation.arguments.contains("swift-holons"))
+    }
+
     func testHolonRPCServerInvocationAddsDefaults() {
         let invocation = CertificationCLI.makeHolonRPCServerInvocation(
             userArgs: ["ws://127.0.0.1:0/rpc"],

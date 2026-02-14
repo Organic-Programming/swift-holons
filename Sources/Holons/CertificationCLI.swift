@@ -1,4 +1,10 @@
 import Foundation
+import Dispatch
+#if os(Linux)
+import Glibc
+#else
+import Darwin
+#endif
 
 public struct CertificationInvocation: Equatable {
     public let command: String
@@ -65,6 +71,13 @@ public enum CertificationCLI {
             .appendingPathComponent("main.go")
     }
 
+    public static func echoServerDelayHelperPath(packageRoot: URL = packageRoot()) -> URL {
+        packageRoot
+            .appendingPathComponent("cmd", isDirectory: true)
+            .appendingPathComponent("echo-server-delay", isDirectory: true)
+            .appendingPathComponent("main.go")
+    }
+
     public static func resolveGoBinary(
         environment: [String: String] = ProcessInfo.processInfo.environment
     ) -> String {
@@ -110,7 +123,11 @@ public enum CertificationCLI {
         environment: [String: String] = ProcessInfo.processInfo.environment,
         packageRoot: URL = packageRoot()
     ) -> CertificationInvocation {
-        var arguments: [String] = ["run", "./cmd/echo-server"]
+        let executable = containsFlag(userArgs, named: "--handler-delay-ms")
+            ? echoServerDelayHelperPath(packageRoot: packageRoot).path
+            : "./cmd/echo-server"
+
+        var arguments: [String] = ["run", executable]
         arguments.append(contentsOf: userArgs)
 
         if !containsFlag(userArgs, named: "--sdk") {
@@ -187,6 +204,28 @@ public enum CertificationCLI {
             throw CertificationCLIError.launchFailed("\(invocation.command): \(error)")
         }
 
+        signal(SIGTERM, SIG_IGN)
+        signal(SIGINT, SIG_IGN)
+
+        let signalQueue = DispatchQueue(label: "holons.certification-cli.signal-forwarding")
+        let termSource = makeSignalForwarder(
+            signalNumber: SIGTERM,
+            process: process,
+            queue: signalQueue
+        )
+        let intSource = makeSignalForwarder(
+            signalNumber: SIGINT,
+            process: process,
+            queue: signalQueue
+        )
+
+        defer {
+            termSource.cancel()
+            intSource.cancel()
+            signal(SIGTERM, SIG_DFL)
+            signal(SIGINT, SIG_DFL)
+        }
+
         process.waitUntilExit()
         return process.terminationStatus
     }
@@ -195,5 +234,60 @@ public enum CertificationCLI {
         args.contains { arg in
             arg == name || arg.hasPrefix("\(name)=")
         }
+    }
+
+    private static func makeSignalForwarder(
+        signalNumber: Int32,
+        process: Process,
+        queue: DispatchQueue
+    ) -> DispatchSourceSignal {
+        let source = DispatchSource.makeSignalSource(signal: signalNumber, queue: queue)
+        source.setEventHandler {
+            forwardSignal(signalNumber, for: process)
+        }
+        source.resume()
+        return source
+    }
+
+    private static func forwardSignal(_ signalNumber: Int32, for process: Process) {
+        guard process.isRunning else { return }
+
+        let rootPID = process.processIdentifier
+        let targetPID = firstChildProcessID(of: rootPID) ?? rootPID
+        _ = kill(targetPID, signalNumber)
+    }
+
+    private static func firstChildProcessID(of parentPID: pid_t) -> pid_t? {
+        let lookup = Process()
+        lookup.executableURL = URL(fileURLWithPath: "/usr/bin/env")
+        lookup.arguments = ["pgrep", "-P", String(parentPID)]
+
+        let stdout = Pipe()
+        lookup.standardOutput = stdout
+        lookup.standardError = Pipe()
+        lookup.standardInput = nil
+
+        do {
+            try lookup.run()
+        } catch {
+            return nil
+        }
+
+        lookup.waitUntilExit()
+        guard lookup.terminationStatus == 0 else {
+            return nil
+        }
+
+        let data = stdout.fileHandleForReading.readDataToEndOfFile()
+        guard let output = String(data: data, encoding: .utf8) else {
+            return nil
+        }
+
+        let pids = output
+            .split(whereSeparator: \.isNewline)
+            .compactMap { Int32($0.trimmingCharacters(in: .whitespaces)) }
+            .filter { $0 > 0 }
+
+        return pids.max()
     }
 }
