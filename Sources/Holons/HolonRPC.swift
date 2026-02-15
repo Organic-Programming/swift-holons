@@ -340,12 +340,25 @@ public actor HolonRPCClient {
             return
         }
 
-        if let result = payload["result"] as? [String: Any] {
+        guard payload.keys.contains("result") else {
+            continuation.resume(returning: [:])
+            return
+        }
+
+        let rawResult = payload["result"]
+        if rawResult is NSNull || rawResult == nil {
+            continuation.resume(returning: [:])
+            return
+        }
+
+        if let result = rawResult as? [String: Any] {
             continuation.resume(returning: result)
             return
         }
 
-        continuation.resume(returning: [:])
+        // Keep object results as-is and wrap scalar/array values so callers
+        // can consume fan-out aggregate arrays through result["value"].
+        continuation.resume(returning: ["value": rawResult as Any])
     }
 
     private func sendResult(id: Any, result: Params) async throws {

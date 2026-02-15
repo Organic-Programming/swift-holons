@@ -147,7 +147,7 @@ final class CertificationCLITests: XCTestCase {
         XCTAssertEqual(capabilities?["grpc_dial_ws"] as? Bool, true)
         XCTAssertEqual(capabilities?["holon_rpc_server"] as? Bool, true)
         let routing = Set((capabilities?["routing"] as? [String]) ?? [])
-        XCTAssertEqual(routing, Set(["unicast", "fanout"]))
+        XCTAssertEqual(routing, Set(["unicast", "fanout", "broadcast-response", "full-broadcast"]))
     }
 
     func testEchoClientSupportsMemRoundTrip() throws {
@@ -229,7 +229,7 @@ final class CertificationCLITests: XCTestCase {
                     reconnectMaxDelay: 0.5
                 )
                 let responderID = "responder-\(index)"
-                await responder.register(method: "echo.v1.Echo/Ping") { params in
+                await responder.register(method: "Echo/Ping") { params in
                     var out = params
                     out["responder"] = responderID
                     return out
